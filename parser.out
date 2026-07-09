@@ -1,0 +1,2247 @@
+Created by PLY version 3.11 (http://www.dabeaz.com/ply)
+
+Unused terminals:
+
+    BOOLEANO
+    DE
+    INT
+    STRING_TYPE
+
+Grammar
+
+Rule 0     S' -> program
+Rule 1     program -> statement_list
+Rule 2     statement_list -> statement_list statement
+Rule 3     statement_list -> statement
+Rule 4     statement -> declaration
+Rule 5     statement -> assignment
+Rule 6     statement -> print_stmt
+Rule 7     statement -> if_stmt
+Rule 8     declaration -> CONJUNTO ID ASSIGN set_literal SEMICOLON
+Rule 9     assignment -> ID ASSIGN expression SEMICOLON
+Rule 10    print_stmt -> IMPRIMIR expression SEMICOLON
+Rule 11    if_stmt -> IF LPAREN expression RPAREN block
+Rule 12    if_stmt -> IF LPAREN expression RPAREN block ELSE block
+Rule 13    block -> LBRACE statement_list RBRACE
+Rule 14    set_literal -> LBRACE element_list RBRACE
+Rule 15    element_list -> element_list COMMA expression
+Rule 16    element_list -> expression
+Rule 17    expression -> ID
+Rule 18    expression -> NUMBER
+Rule 19    expression -> STRING
+Rule 20    expression -> TRUE
+Rule 21    expression -> FALSE
+Rule 22    expression -> expression UNION expression
+Rule 23    expression -> expression INTERSECCION expression
+Rule 24    expression -> expression DIFERENCIA expression
+Rule 25    expression -> expression EN expression
+Rule 26    expression -> expression LT expression
+Rule 27    expression -> expression LE expression
+Rule 28    expression -> expression GT expression
+Rule 29    expression -> expression GE expression
+Rule 30    expression -> expression EQ expression
+Rule 31    expression -> expression NE expression
+Rule 32    expression -> expression PLUS expression
+Rule 33    expression -> expression MINUS expression
+Rule 34    expression -> expression TIMES expression
+Rule 35    expression -> expression DIVIDE expression
+Rule 36    expression -> LPAREN expression RPAREN
+Rule 37    statement -> error SEMICOLON
+
+Terminals, with rules where they appear
+
+ASSIGN               : 8 9
+BOOLEANO             : 
+COMMA                : 15
+CONJUNTO             : 8
+DE                   : 
+DIFERENCIA           : 24
+DIVIDE               : 35
+ELSE                 : 12
+EN                   : 25
+EQ                   : 30
+FALSE                : 21
+GE                   : 29
+GT                   : 28
+ID                   : 8 9 17
+IF                   : 11 12
+IMPRIMIR             : 10
+INT                  : 
+INTERSECCION         : 23
+LBRACE               : 13 14
+LE                   : 27
+LPAREN               : 11 12 36
+LT                   : 26
+MINUS                : 33
+NE                   : 31
+NUMBER               : 18
+PLUS                 : 32
+RBRACE               : 13 14
+RPAREN               : 11 12 36
+SEMICOLON            : 8 9 10 37
+STRING               : 19
+STRING_TYPE          : 
+TIMES                : 34
+TRUE                 : 20
+UNION                : 22
+error                : 37
+
+Nonterminals, with rules where they appear
+
+assignment           : 5
+block                : 11 12 12
+declaration          : 4
+element_list         : 14 15
+expression           : 9 10 11 12 15 16 22 22 23 23 24 24 25 25 26 26 27 27 28 28 29 29 30 30 31 31 32 32 33 33 34 34 35 35 36
+if_stmt              : 7
+print_stmt           : 6
+program              : 0
+set_literal          : 8
+statement            : 2 3
+statement_list       : 1 2 13
+
+Parsing method: LALR
+
+state 0
+
+    (0) S' -> . program
+    (1) program -> . statement_list
+    (2) statement_list -> . statement_list statement
+    (3) statement_list -> . statement
+    (4) statement -> . declaration
+    (5) statement -> . assignment
+    (6) statement -> . print_stmt
+    (7) statement -> . if_stmt
+    (37) statement -> . error SEMICOLON
+    (8) declaration -> . CONJUNTO ID ASSIGN set_literal SEMICOLON
+    (9) assignment -> . ID ASSIGN expression SEMICOLON
+    (10) print_stmt -> . IMPRIMIR expression SEMICOLON
+    (11) if_stmt -> . IF LPAREN expression RPAREN block
+    (12) if_stmt -> . IF LPAREN expression RPAREN block ELSE block
+
+    error           shift and go to state 8
+    CONJUNTO        shift and go to state 9
+    ID              shift and go to state 10
+    IMPRIMIR        shift and go to state 11
+    IF              shift and go to state 12
+
+    program                        shift and go to state 1
+    statement_list                 shift and go to state 2
+    statement                      shift and go to state 3
+    declaration                    shift and go to state 4
+    assignment                     shift and go to state 5
+    print_stmt                     shift and go to state 6
+    if_stmt                        shift and go to state 7
+
+state 1
+
+    (0) S' -> program .
+
+
+
+state 2
+
+    (1) program -> statement_list .
+    (2) statement_list -> statement_list . statement
+    (4) statement -> . declaration
+    (5) statement -> . assignment
+    (6) statement -> . print_stmt
+    (7) statement -> . if_stmt
+    (37) statement -> . error SEMICOLON
+    (8) declaration -> . CONJUNTO ID ASSIGN set_literal SEMICOLON
+    (9) assignment -> . ID ASSIGN expression SEMICOLON
+    (10) print_stmt -> . IMPRIMIR expression SEMICOLON
+    (11) if_stmt -> . IF LPAREN expression RPAREN block
+    (12) if_stmt -> . IF LPAREN expression RPAREN block ELSE block
+
+    $end            reduce using rule 1 (program -> statement_list .)
+    error           shift and go to state 8
+    CONJUNTO        shift and go to state 9
+    ID              shift and go to state 10
+    IMPRIMIR        shift and go to state 11
+    IF              shift and go to state 12
+
+    statement                      shift and go to state 13
+    declaration                    shift and go to state 4
+    assignment                     shift and go to state 5
+    print_stmt                     shift and go to state 6
+    if_stmt                        shift and go to state 7
+
+state 3
+
+    (3) statement_list -> statement .
+
+    error           reduce using rule 3 (statement_list -> statement .)
+    CONJUNTO        reduce using rule 3 (statement_list -> statement .)
+    ID              reduce using rule 3 (statement_list -> statement .)
+    IMPRIMIR        reduce using rule 3 (statement_list -> statement .)
+    IF              reduce using rule 3 (statement_list -> statement .)
+    $end            reduce using rule 3 (statement_list -> statement .)
+    RBRACE          reduce using rule 3 (statement_list -> statement .)
+
+
+state 4
+
+    (4) statement -> declaration .
+
+    error           reduce using rule 4 (statement -> declaration .)
+    CONJUNTO        reduce using rule 4 (statement -> declaration .)
+    ID              reduce using rule 4 (statement -> declaration .)
+    IMPRIMIR        reduce using rule 4 (statement -> declaration .)
+    IF              reduce using rule 4 (statement -> declaration .)
+    $end            reduce using rule 4 (statement -> declaration .)
+    RBRACE          reduce using rule 4 (statement -> declaration .)
+
+
+state 5
+
+    (5) statement -> assignment .
+
+    error           reduce using rule 5 (statement -> assignment .)
+    CONJUNTO        reduce using rule 5 (statement -> assignment .)
+    ID              reduce using rule 5 (statement -> assignment .)
+    IMPRIMIR        reduce using rule 5 (statement -> assignment .)
+    IF              reduce using rule 5 (statement -> assignment .)
+    $end            reduce using rule 5 (statement -> assignment .)
+    RBRACE          reduce using rule 5 (statement -> assignment .)
+
+
+state 6
+
+    (6) statement -> print_stmt .
+
+    error           reduce using rule 6 (statement -> print_stmt .)
+    CONJUNTO        reduce using rule 6 (statement -> print_stmt .)
+    ID              reduce using rule 6 (statement -> print_stmt .)
+    IMPRIMIR        reduce using rule 6 (statement -> print_stmt .)
+    IF              reduce using rule 6 (statement -> print_stmt .)
+    $end            reduce using rule 6 (statement -> print_stmt .)
+    RBRACE          reduce using rule 6 (statement -> print_stmt .)
+
+
+state 7
+
+    (7) statement -> if_stmt .
+
+    error           reduce using rule 7 (statement -> if_stmt .)
+    CONJUNTO        reduce using rule 7 (statement -> if_stmt .)
+    ID              reduce using rule 7 (statement -> if_stmt .)
+    IMPRIMIR        reduce using rule 7 (statement -> if_stmt .)
+    IF              reduce using rule 7 (statement -> if_stmt .)
+    $end            reduce using rule 7 (statement -> if_stmt .)
+    RBRACE          reduce using rule 7 (statement -> if_stmt .)
+
+
+state 8
+
+    (37) statement -> error . SEMICOLON
+
+    SEMICOLON       shift and go to state 14
+
+
+state 9
+
+    (8) declaration -> CONJUNTO . ID ASSIGN set_literal SEMICOLON
+
+    ID              shift and go to state 15
+
+
+state 10
+
+    (9) assignment -> ID . ASSIGN expression SEMICOLON
+
+    ASSIGN          shift and go to state 16
+
+
+state 11
+
+    (10) print_stmt -> IMPRIMIR . expression SEMICOLON
+    (17) expression -> . ID
+    (18) expression -> . NUMBER
+    (19) expression -> . STRING
+    (20) expression -> . TRUE
+    (21) expression -> . FALSE
+    (22) expression -> . expression UNION expression
+    (23) expression -> . expression INTERSECCION expression
+    (24) expression -> . expression DIFERENCIA expression
+    (25) expression -> . expression EN expression
+    (26) expression -> . expression LT expression
+    (27) expression -> . expression LE expression
+    (28) expression -> . expression GT expression
+    (29) expression -> . expression GE expression
+    (30) expression -> . expression EQ expression
+    (31) expression -> . expression NE expression
+    (32) expression -> . expression PLUS expression
+    (33) expression -> . expression MINUS expression
+    (34) expression -> . expression TIMES expression
+    (35) expression -> . expression DIVIDE expression
+    (36) expression -> . LPAREN expression RPAREN
+
+    ID              shift and go to state 18
+    NUMBER          shift and go to state 19
+    STRING          shift and go to state 20
+    TRUE            shift and go to state 21
+    FALSE           shift and go to state 22
+    LPAREN          shift and go to state 23
+
+    expression                     shift and go to state 17
+
+state 12
+
+    (11) if_stmt -> IF . LPAREN expression RPAREN block
+    (12) if_stmt -> IF . LPAREN expression RPAREN block ELSE block
+
+    LPAREN          shift and go to state 24
+
+
+state 13
+
+    (2) statement_list -> statement_list statement .
+
+    error           reduce using rule 2 (statement_list -> statement_list statement .)
+    CONJUNTO        reduce using rule 2 (statement_list -> statement_list statement .)
+    ID              reduce using rule 2 (statement_list -> statement_list statement .)
+    IMPRIMIR        reduce using rule 2 (statement_list -> statement_list statement .)
+    IF              reduce using rule 2 (statement_list -> statement_list statement .)
+    $end            reduce using rule 2 (statement_list -> statement_list statement .)
+    RBRACE          reduce using rule 2 (statement_list -> statement_list statement .)
+
+
+state 14
+
+    (37) statement -> error SEMICOLON .
+
+    error           reduce using rule 37 (statement -> error SEMICOLON .)
+    CONJUNTO        reduce using rule 37 (statement -> error SEMICOLON .)
+    ID              reduce using rule 37 (statement -> error SEMICOLON .)
+    IMPRIMIR        reduce using rule 37 (statement -> error SEMICOLON .)
+    IF              reduce using rule 37 (statement -> error SEMICOLON .)
+    $end            reduce using rule 37 (statement -> error SEMICOLON .)
+    RBRACE          reduce using rule 37 (statement -> error SEMICOLON .)
+
+
+state 15
+
+    (8) declaration -> CONJUNTO ID . ASSIGN set_literal SEMICOLON
+
+    ASSIGN          shift and go to state 25
+
+
+state 16
+
+    (9) assignment -> ID ASSIGN . expression SEMICOLON
+    (17) expression -> . ID
+    (18) expression -> . NUMBER
+    (19) expression -> . STRING
+    (20) expression -> . TRUE
+    (21) expression -> . FALSE
+    (22) expression -> . expression UNION expression
+    (23) expression -> . expression INTERSECCION expression
+    (24) expression -> . expression DIFERENCIA expression
+    (25) expression -> . expression EN expression
+    (26) expression -> . expression LT expression
+    (27) expression -> . expression LE expression
+    (28) expression -> . expression GT expression
+    (29) expression -> . expression GE expression
+    (30) expression -> . expression EQ expression
+    (31) expression -> . expression NE expression
+    (32) expression -> . expression PLUS expression
+    (33) expression -> . expression MINUS expression
+    (34) expression -> . expression TIMES expression
+    (35) expression -> . expression DIVIDE expression
+    (36) expression -> . LPAREN expression RPAREN
+
+    ID              shift and go to state 18
+    NUMBER          shift and go to state 19
+    STRING          shift and go to state 20
+    TRUE            shift and go to state 21
+    FALSE           shift and go to state 22
+    LPAREN          shift and go to state 23
+
+    expression                     shift and go to state 26
+
+state 17
+
+    (10) print_stmt -> IMPRIMIR expression . SEMICOLON
+    (22) expression -> expression . UNION expression
+    (23) expression -> expression . INTERSECCION expression
+    (24) expression -> expression . DIFERENCIA expression
+    (25) expression -> expression . EN expression
+    (26) expression -> expression . LT expression
+    (27) expression -> expression . LE expression
+    (28) expression -> expression . GT expression
+    (29) expression -> expression . GE expression
+    (30) expression -> expression . EQ expression
+    (31) expression -> expression . NE expression
+    (32) expression -> expression . PLUS expression
+    (33) expression -> expression . MINUS expression
+    (34) expression -> expression . TIMES expression
+    (35) expression -> expression . DIVIDE expression
+
+    SEMICOLON       shift and go to state 27
+    UNION           shift and go to state 28
+    INTERSECCION    shift and go to state 29
+    DIFERENCIA      shift and go to state 30
+    EN              shift and go to state 31
+    LT              shift and go to state 32
+    LE              shift and go to state 33
+    GT              shift and go to state 34
+    GE              shift and go to state 35
+    EQ              shift and go to state 36
+    NE              shift and go to state 37
+    PLUS            shift and go to state 38
+    MINUS           shift and go to state 39
+    TIMES           shift and go to state 40
+    DIVIDE          shift and go to state 41
+
+
+state 18
+
+    (17) expression -> ID .
+
+    SEMICOLON       reduce using rule 17 (expression -> ID .)
+    UNION           reduce using rule 17 (expression -> ID .)
+    INTERSECCION    reduce using rule 17 (expression -> ID .)
+    DIFERENCIA      reduce using rule 17 (expression -> ID .)
+    EN              reduce using rule 17 (expression -> ID .)
+    LT              reduce using rule 17 (expression -> ID .)
+    LE              reduce using rule 17 (expression -> ID .)
+    GT              reduce using rule 17 (expression -> ID .)
+    GE              reduce using rule 17 (expression -> ID .)
+    EQ              reduce using rule 17 (expression -> ID .)
+    NE              reduce using rule 17 (expression -> ID .)
+    PLUS            reduce using rule 17 (expression -> ID .)
+    MINUS           reduce using rule 17 (expression -> ID .)
+    TIMES           reduce using rule 17 (expression -> ID .)
+    DIVIDE          reduce using rule 17 (expression -> ID .)
+    RPAREN          reduce using rule 17 (expression -> ID .)
+    RBRACE          reduce using rule 17 (expression -> ID .)
+    COMMA           reduce using rule 17 (expression -> ID .)
+
+
+state 19
+
+    (18) expression -> NUMBER .
+
+    SEMICOLON       reduce using rule 18 (expression -> NUMBER .)
+    UNION           reduce using rule 18 (expression -> NUMBER .)
+    INTERSECCION    reduce using rule 18 (expression -> NUMBER .)
+    DIFERENCIA      reduce using rule 18 (expression -> NUMBER .)
+    EN              reduce using rule 18 (expression -> NUMBER .)
+    LT              reduce using rule 18 (expression -> NUMBER .)
+    LE              reduce using rule 18 (expression -> NUMBER .)
+    GT              reduce using rule 18 (expression -> NUMBER .)
+    GE              reduce using rule 18 (expression -> NUMBER .)
+    EQ              reduce using rule 18 (expression -> NUMBER .)
+    NE              reduce using rule 18 (expression -> NUMBER .)
+    PLUS            reduce using rule 18 (expression -> NUMBER .)
+    MINUS           reduce using rule 18 (expression -> NUMBER .)
+    TIMES           reduce using rule 18 (expression -> NUMBER .)
+    DIVIDE          reduce using rule 18 (expression -> NUMBER .)
+    RPAREN          reduce using rule 18 (expression -> NUMBER .)
+    RBRACE          reduce using rule 18 (expression -> NUMBER .)
+    COMMA           reduce using rule 18 (expression -> NUMBER .)
+
+
+state 20
+
+    (19) expression -> STRING .
+
+    SEMICOLON       reduce using rule 19 (expression -> STRING .)
+    UNION           reduce using rule 19 (expression -> STRING .)
+    INTERSECCION    reduce using rule 19 (expression -> STRING .)
+    DIFERENCIA      reduce using rule 19 (expression -> STRING .)
+    EN              reduce using rule 19 (expression -> STRING .)
+    LT              reduce using rule 19 (expression -> STRING .)
+    LE              reduce using rule 19 (expression -> STRING .)
+    GT              reduce using rule 19 (expression -> STRING .)
+    GE              reduce using rule 19 (expression -> STRING .)
+    EQ              reduce using rule 19 (expression -> STRING .)
+    NE              reduce using rule 19 (expression -> STRING .)
+    PLUS            reduce using rule 19 (expression -> STRING .)
+    MINUS           reduce using rule 19 (expression -> STRING .)
+    TIMES           reduce using rule 19 (expression -> STRING .)
+    DIVIDE          reduce using rule 19 (expression -> STRING .)
+    RPAREN          reduce using rule 19 (expression -> STRING .)
+    RBRACE          reduce using rule 19 (expression -> STRING .)
+    COMMA           reduce using rule 19 (expression -> STRING .)
+
+
+state 21
+
+    (20) expression -> TRUE .
+
+    SEMICOLON       reduce using rule 20 (expression -> TRUE .)
+    UNION           reduce using rule 20 (expression -> TRUE .)
+    INTERSECCION    reduce using rule 20 (expression -> TRUE .)
+    DIFERENCIA      reduce using rule 20 (expression -> TRUE .)
+    EN              reduce using rule 20 (expression -> TRUE .)
+    LT              reduce using rule 20 (expression -> TRUE .)
+    LE              reduce using rule 20 (expression -> TRUE .)
+    GT              reduce using rule 20 (expression -> TRUE .)
+    GE              reduce using rule 20 (expression -> TRUE .)
+    EQ              reduce using rule 20 (expression -> TRUE .)
+    NE              reduce using rule 20 (expression -> TRUE .)
+    PLUS            reduce using rule 20 (expression -> TRUE .)
+    MINUS           reduce using rule 20 (expression -> TRUE .)
+    TIMES           reduce using rule 20 (expression -> TRUE .)
+    DIVIDE          reduce using rule 20 (expression -> TRUE .)
+    RPAREN          reduce using rule 20 (expression -> TRUE .)
+    RBRACE          reduce using rule 20 (expression -> TRUE .)
+    COMMA           reduce using rule 20 (expression -> TRUE .)
+
+
+state 22
+
+    (21) expression -> FALSE .
+
+    SEMICOLON       reduce using rule 21 (expression -> FALSE .)
+    UNION           reduce using rule 21 (expression -> FALSE .)
+    INTERSECCION    reduce using rule 21 (expression -> FALSE .)
+    DIFERENCIA      reduce using rule 21 (expression -> FALSE .)
+    EN              reduce using rule 21 (expression -> FALSE .)
+    LT              reduce using rule 21 (expression -> FALSE .)
+    LE              reduce using rule 21 (expression -> FALSE .)
+    GT              reduce using rule 21 (expression -> FALSE .)
+    GE              reduce using rule 21 (expression -> FALSE .)
+    EQ              reduce using rule 21 (expression -> FALSE .)
+    NE              reduce using rule 21 (expression -> FALSE .)
+    PLUS            reduce using rule 21 (expression -> FALSE .)
+    MINUS           reduce using rule 21 (expression -> FALSE .)
+    TIMES           reduce using rule 21 (expression -> FALSE .)
+    DIVIDE          reduce using rule 21 (expression -> FALSE .)
+    RPAREN          reduce using rule 21 (expression -> FALSE .)
+    RBRACE          reduce using rule 21 (expression -> FALSE .)
+    COMMA           reduce using rule 21 (expression -> FALSE .)
+
+
+state 23
+
+    (36) expression -> LPAREN . expression RPAREN
+    (17) expression -> . ID
+    (18) expression -> . NUMBER
+    (19) expression -> . STRING
+    (20) expression -> . TRUE
+    (21) expression -> . FALSE
+    (22) expression -> . expression UNION expression
+    (23) expression -> . expression INTERSECCION expression
+    (24) expression -> . expression DIFERENCIA expression
+    (25) expression -> . expression EN expression
+    (26) expression -> . expression LT expression
+    (27) expression -> . expression LE expression
+    (28) expression -> . expression GT expression
+    (29) expression -> . expression GE expression
+    (30) expression -> . expression EQ expression
+    (31) expression -> . expression NE expression
+    (32) expression -> . expression PLUS expression
+    (33) expression -> . expression MINUS expression
+    (34) expression -> . expression TIMES expression
+    (35) expression -> . expression DIVIDE expression
+    (36) expression -> . LPAREN expression RPAREN
+
+    ID              shift and go to state 18
+    NUMBER          shift and go to state 19
+    STRING          shift and go to state 20
+    TRUE            shift and go to state 21
+    FALSE           shift and go to state 22
+    LPAREN          shift and go to state 23
+
+    expression                     shift and go to state 42
+
+state 24
+
+    (11) if_stmt -> IF LPAREN . expression RPAREN block
+    (12) if_stmt -> IF LPAREN . expression RPAREN block ELSE block
+    (17) expression -> . ID
+    (18) expression -> . NUMBER
+    (19) expression -> . STRING
+    (20) expression -> . TRUE
+    (21) expression -> . FALSE
+    (22) expression -> . expression UNION expression
+    (23) expression -> . expression INTERSECCION expression
+    (24) expression -> . expression DIFERENCIA expression
+    (25) expression -> . expression EN expression
+    (26) expression -> . expression LT expression
+    (27) expression -> . expression LE expression
+    (28) expression -> . expression GT expression
+    (29) expression -> . expression GE expression
+    (30) expression -> . expression EQ expression
+    (31) expression -> . expression NE expression
+    (32) expression -> . expression PLUS expression
+    (33) expression -> . expression MINUS expression
+    (34) expression -> . expression TIMES expression
+    (35) expression -> . expression DIVIDE expression
+    (36) expression -> . LPAREN expression RPAREN
+
+    ID              shift and go to state 18
+    NUMBER          shift and go to state 19
+    STRING          shift and go to state 20
+    TRUE            shift and go to state 21
+    FALSE           shift and go to state 22
+    LPAREN          shift and go to state 23
+
+    expression                     shift and go to state 43
+
+state 25
+
+    (8) declaration -> CONJUNTO ID ASSIGN . set_literal SEMICOLON
+    (14) set_literal -> . LBRACE element_list RBRACE
+
+    LBRACE          shift and go to state 45
+
+    set_literal                    shift and go to state 44
+
+state 26
+
+    (9) assignment -> ID ASSIGN expression . SEMICOLON
+    (22) expression -> expression . UNION expression
+    (23) expression -> expression . INTERSECCION expression
+    (24) expression -> expression . DIFERENCIA expression
+    (25) expression -> expression . EN expression
+    (26) expression -> expression . LT expression
+    (27) expression -> expression . LE expression
+    (28) expression -> expression . GT expression
+    (29) expression -> expression . GE expression
+    (30) expression -> expression . EQ expression
+    (31) expression -> expression . NE expression
+    (32) expression -> expression . PLUS expression
+    (33) expression -> expression . MINUS expression
+    (34) expression -> expression . TIMES expression
+    (35) expression -> expression . DIVIDE expression
+
+    SEMICOLON       shift and go to state 46
+    UNION           shift and go to state 28
+    INTERSECCION    shift and go to state 29
+    DIFERENCIA      shift and go to state 30
+    EN              shift and go to state 31
+    LT              shift and go to state 32
+    LE              shift and go to state 33
+    GT              shift and go to state 34
+    GE              shift and go to state 35
+    EQ              shift and go to state 36
+    NE              shift and go to state 37
+    PLUS            shift and go to state 38
+    MINUS           shift and go to state 39
+    TIMES           shift and go to state 40
+    DIVIDE          shift and go to state 41
+
+
+state 27
+
+    (10) print_stmt -> IMPRIMIR expression SEMICOLON .
+
+    error           reduce using rule 10 (print_stmt -> IMPRIMIR expression SEMICOLON .)
+    CONJUNTO        reduce using rule 10 (print_stmt -> IMPRIMIR expression SEMICOLON .)
+    ID              reduce using rule 10 (print_stmt -> IMPRIMIR expression SEMICOLON .)
+    IMPRIMIR        reduce using rule 10 (print_stmt -> IMPRIMIR expression SEMICOLON .)
+    IF              reduce using rule 10 (print_stmt -> IMPRIMIR expression SEMICOLON .)
+    $end            reduce using rule 10 (print_stmt -> IMPRIMIR expression SEMICOLON .)
+    RBRACE          reduce using rule 10 (print_stmt -> IMPRIMIR expression SEMICOLON .)
+
+
+state 28
+
+    (22) expression -> expression UNION . expression
+    (17) expression -> . ID
+    (18) expression -> . NUMBER
+    (19) expression -> . STRING
+    (20) expression -> . TRUE
+    (21) expression -> . FALSE
+    (22) expression -> . expression UNION expression
+    (23) expression -> . expression INTERSECCION expression
+    (24) expression -> . expression DIFERENCIA expression
+    (25) expression -> . expression EN expression
+    (26) expression -> . expression LT expression
+    (27) expression -> . expression LE expression
+    (28) expression -> . expression GT expression
+    (29) expression -> . expression GE expression
+    (30) expression -> . expression EQ expression
+    (31) expression -> . expression NE expression
+    (32) expression -> . expression PLUS expression
+    (33) expression -> . expression MINUS expression
+    (34) expression -> . expression TIMES expression
+    (35) expression -> . expression DIVIDE expression
+    (36) expression -> . LPAREN expression RPAREN
+
+    ID              shift and go to state 18
+    NUMBER          shift and go to state 19
+    STRING          shift and go to state 20
+    TRUE            shift and go to state 21
+    FALSE           shift and go to state 22
+    LPAREN          shift and go to state 23
+
+    expression                     shift and go to state 47
+
+state 29
+
+    (23) expression -> expression INTERSECCION . expression
+    (17) expression -> . ID
+    (18) expression -> . NUMBER
+    (19) expression -> . STRING
+    (20) expression -> . TRUE
+    (21) expression -> . FALSE
+    (22) expression -> . expression UNION expression
+    (23) expression -> . expression INTERSECCION expression
+    (24) expression -> . expression DIFERENCIA expression
+    (25) expression -> . expression EN expression
+    (26) expression -> . expression LT expression
+    (27) expression -> . expression LE expression
+    (28) expression -> . expression GT expression
+    (29) expression -> . expression GE expression
+    (30) expression -> . expression EQ expression
+    (31) expression -> . expression NE expression
+    (32) expression -> . expression PLUS expression
+    (33) expression -> . expression MINUS expression
+    (34) expression -> . expression TIMES expression
+    (35) expression -> . expression DIVIDE expression
+    (36) expression -> . LPAREN expression RPAREN
+
+    ID              shift and go to state 18
+    NUMBER          shift and go to state 19
+    STRING          shift and go to state 20
+    TRUE            shift and go to state 21
+    FALSE           shift and go to state 22
+    LPAREN          shift and go to state 23
+
+    expression                     shift and go to state 48
+
+state 30
+
+    (24) expression -> expression DIFERENCIA . expression
+    (17) expression -> . ID
+    (18) expression -> . NUMBER
+    (19) expression -> . STRING
+    (20) expression -> . TRUE
+    (21) expression -> . FALSE
+    (22) expression -> . expression UNION expression
+    (23) expression -> . expression INTERSECCION expression
+    (24) expression -> . expression DIFERENCIA expression
+    (25) expression -> . expression EN expression
+    (26) expression -> . expression LT expression
+    (27) expression -> . expression LE expression
+    (28) expression -> . expression GT expression
+    (29) expression -> . expression GE expression
+    (30) expression -> . expression EQ expression
+    (31) expression -> . expression NE expression
+    (32) expression -> . expression PLUS expression
+    (33) expression -> . expression MINUS expression
+    (34) expression -> . expression TIMES expression
+    (35) expression -> . expression DIVIDE expression
+    (36) expression -> . LPAREN expression RPAREN
+
+    ID              shift and go to state 18
+    NUMBER          shift and go to state 19
+    STRING          shift and go to state 20
+    TRUE            shift and go to state 21
+    FALSE           shift and go to state 22
+    LPAREN          shift and go to state 23
+
+    expression                     shift and go to state 49
+
+state 31
+
+    (25) expression -> expression EN . expression
+    (17) expression -> . ID
+    (18) expression -> . NUMBER
+    (19) expression -> . STRING
+    (20) expression -> . TRUE
+    (21) expression -> . FALSE
+    (22) expression -> . expression UNION expression
+    (23) expression -> . expression INTERSECCION expression
+    (24) expression -> . expression DIFERENCIA expression
+    (25) expression -> . expression EN expression
+    (26) expression -> . expression LT expression
+    (27) expression -> . expression LE expression
+    (28) expression -> . expression GT expression
+    (29) expression -> . expression GE expression
+    (30) expression -> . expression EQ expression
+    (31) expression -> . expression NE expression
+    (32) expression -> . expression PLUS expression
+    (33) expression -> . expression MINUS expression
+    (34) expression -> . expression TIMES expression
+    (35) expression -> . expression DIVIDE expression
+    (36) expression -> . LPAREN expression RPAREN
+
+    ID              shift and go to state 18
+    NUMBER          shift and go to state 19
+    STRING          shift and go to state 20
+    TRUE            shift and go to state 21
+    FALSE           shift and go to state 22
+    LPAREN          shift and go to state 23
+
+    expression                     shift and go to state 50
+
+state 32
+
+    (26) expression -> expression LT . expression
+    (17) expression -> . ID
+    (18) expression -> . NUMBER
+    (19) expression -> . STRING
+    (20) expression -> . TRUE
+    (21) expression -> . FALSE
+    (22) expression -> . expression UNION expression
+    (23) expression -> . expression INTERSECCION expression
+    (24) expression -> . expression DIFERENCIA expression
+    (25) expression -> . expression EN expression
+    (26) expression -> . expression LT expression
+    (27) expression -> . expression LE expression
+    (28) expression -> . expression GT expression
+    (29) expression -> . expression GE expression
+    (30) expression -> . expression EQ expression
+    (31) expression -> . expression NE expression
+    (32) expression -> . expression PLUS expression
+    (33) expression -> . expression MINUS expression
+    (34) expression -> . expression TIMES expression
+    (35) expression -> . expression DIVIDE expression
+    (36) expression -> . LPAREN expression RPAREN
+
+    ID              shift and go to state 18
+    NUMBER          shift and go to state 19
+    STRING          shift and go to state 20
+    TRUE            shift and go to state 21
+    FALSE           shift and go to state 22
+    LPAREN          shift and go to state 23
+
+    expression                     shift and go to state 51
+
+state 33
+
+    (27) expression -> expression LE . expression
+    (17) expression -> . ID
+    (18) expression -> . NUMBER
+    (19) expression -> . STRING
+    (20) expression -> . TRUE
+    (21) expression -> . FALSE
+    (22) expression -> . expression UNION expression
+    (23) expression -> . expression INTERSECCION expression
+    (24) expression -> . expression DIFERENCIA expression
+    (25) expression -> . expression EN expression
+    (26) expression -> . expression LT expression
+    (27) expression -> . expression LE expression
+    (28) expression -> . expression GT expression
+    (29) expression -> . expression GE expression
+    (30) expression -> . expression EQ expression
+    (31) expression -> . expression NE expression
+    (32) expression -> . expression PLUS expression
+    (33) expression -> . expression MINUS expression
+    (34) expression -> . expression TIMES expression
+    (35) expression -> . expression DIVIDE expression
+    (36) expression -> . LPAREN expression RPAREN
+
+    ID              shift and go to state 18
+    NUMBER          shift and go to state 19
+    STRING          shift and go to state 20
+    TRUE            shift and go to state 21
+    FALSE           shift and go to state 22
+    LPAREN          shift and go to state 23
+
+    expression                     shift and go to state 52
+
+state 34
+
+    (28) expression -> expression GT . expression
+    (17) expression -> . ID
+    (18) expression -> . NUMBER
+    (19) expression -> . STRING
+    (20) expression -> . TRUE
+    (21) expression -> . FALSE
+    (22) expression -> . expression UNION expression
+    (23) expression -> . expression INTERSECCION expression
+    (24) expression -> . expression DIFERENCIA expression
+    (25) expression -> . expression EN expression
+    (26) expression -> . expression LT expression
+    (27) expression -> . expression LE expression
+    (28) expression -> . expression GT expression
+    (29) expression -> . expression GE expression
+    (30) expression -> . expression EQ expression
+    (31) expression -> . expression NE expression
+    (32) expression -> . expression PLUS expression
+    (33) expression -> . expression MINUS expression
+    (34) expression -> . expression TIMES expression
+    (35) expression -> . expression DIVIDE expression
+    (36) expression -> . LPAREN expression RPAREN
+
+    ID              shift and go to state 18
+    NUMBER          shift and go to state 19
+    STRING          shift and go to state 20
+    TRUE            shift and go to state 21
+    FALSE           shift and go to state 22
+    LPAREN          shift and go to state 23
+
+    expression                     shift and go to state 53
+
+state 35
+
+    (29) expression -> expression GE . expression
+    (17) expression -> . ID
+    (18) expression -> . NUMBER
+    (19) expression -> . STRING
+    (20) expression -> . TRUE
+    (21) expression -> . FALSE
+    (22) expression -> . expression UNION expression
+    (23) expression -> . expression INTERSECCION expression
+    (24) expression -> . expression DIFERENCIA expression
+    (25) expression -> . expression EN expression
+    (26) expression -> . expression LT expression
+    (27) expression -> . expression LE expression
+    (28) expression -> . expression GT expression
+    (29) expression -> . expression GE expression
+    (30) expression -> . expression EQ expression
+    (31) expression -> . expression NE expression
+    (32) expression -> . expression PLUS expression
+    (33) expression -> . expression MINUS expression
+    (34) expression -> . expression TIMES expression
+    (35) expression -> . expression DIVIDE expression
+    (36) expression -> . LPAREN expression RPAREN
+
+    ID              shift and go to state 18
+    NUMBER          shift and go to state 19
+    STRING          shift and go to state 20
+    TRUE            shift and go to state 21
+    FALSE           shift and go to state 22
+    LPAREN          shift and go to state 23
+
+    expression                     shift and go to state 54
+
+state 36
+
+    (30) expression -> expression EQ . expression
+    (17) expression -> . ID
+    (18) expression -> . NUMBER
+    (19) expression -> . STRING
+    (20) expression -> . TRUE
+    (21) expression -> . FALSE
+    (22) expression -> . expression UNION expression
+    (23) expression -> . expression INTERSECCION expression
+    (24) expression -> . expression DIFERENCIA expression
+    (25) expression -> . expression EN expression
+    (26) expression -> . expression LT expression
+    (27) expression -> . expression LE expression
+    (28) expression -> . expression GT expression
+    (29) expression -> . expression GE expression
+    (30) expression -> . expression EQ expression
+    (31) expression -> . expression NE expression
+    (32) expression -> . expression PLUS expression
+    (33) expression -> . expression MINUS expression
+    (34) expression -> . expression TIMES expression
+    (35) expression -> . expression DIVIDE expression
+    (36) expression -> . LPAREN expression RPAREN
+
+    ID              shift and go to state 18
+    NUMBER          shift and go to state 19
+    STRING          shift and go to state 20
+    TRUE            shift and go to state 21
+    FALSE           shift and go to state 22
+    LPAREN          shift and go to state 23
+
+    expression                     shift and go to state 55
+
+state 37
+
+    (31) expression -> expression NE . expression
+    (17) expression -> . ID
+    (18) expression -> . NUMBER
+    (19) expression -> . STRING
+    (20) expression -> . TRUE
+    (21) expression -> . FALSE
+    (22) expression -> . expression UNION expression
+    (23) expression -> . expression INTERSECCION expression
+    (24) expression -> . expression DIFERENCIA expression
+    (25) expression -> . expression EN expression
+    (26) expression -> . expression LT expression
+    (27) expression -> . expression LE expression
+    (28) expression -> . expression GT expression
+    (29) expression -> . expression GE expression
+    (30) expression -> . expression EQ expression
+    (31) expression -> . expression NE expression
+    (32) expression -> . expression PLUS expression
+    (33) expression -> . expression MINUS expression
+    (34) expression -> . expression TIMES expression
+    (35) expression -> . expression DIVIDE expression
+    (36) expression -> . LPAREN expression RPAREN
+
+    ID              shift and go to state 18
+    NUMBER          shift and go to state 19
+    STRING          shift and go to state 20
+    TRUE            shift and go to state 21
+    FALSE           shift and go to state 22
+    LPAREN          shift and go to state 23
+
+    expression                     shift and go to state 56
+
+state 38
+
+    (32) expression -> expression PLUS . expression
+    (17) expression -> . ID
+    (18) expression -> . NUMBER
+    (19) expression -> . STRING
+    (20) expression -> . TRUE
+    (21) expression -> . FALSE
+    (22) expression -> . expression UNION expression
+    (23) expression -> . expression INTERSECCION expression
+    (24) expression -> . expression DIFERENCIA expression
+    (25) expression -> . expression EN expression
+    (26) expression -> . expression LT expression
+    (27) expression -> . expression LE expression
+    (28) expression -> . expression GT expression
+    (29) expression -> . expression GE expression
+    (30) expression -> . expression EQ expression
+    (31) expression -> . expression NE expression
+    (32) expression -> . expression PLUS expression
+    (33) expression -> . expression MINUS expression
+    (34) expression -> . expression TIMES expression
+    (35) expression -> . expression DIVIDE expression
+    (36) expression -> . LPAREN expression RPAREN
+
+    ID              shift and go to state 18
+    NUMBER          shift and go to state 19
+    STRING          shift and go to state 20
+    TRUE            shift and go to state 21
+    FALSE           shift and go to state 22
+    LPAREN          shift and go to state 23
+
+    expression                     shift and go to state 57
+
+state 39
+
+    (33) expression -> expression MINUS . expression
+    (17) expression -> . ID
+    (18) expression -> . NUMBER
+    (19) expression -> . STRING
+    (20) expression -> . TRUE
+    (21) expression -> . FALSE
+    (22) expression -> . expression UNION expression
+    (23) expression -> . expression INTERSECCION expression
+    (24) expression -> . expression DIFERENCIA expression
+    (25) expression -> . expression EN expression
+    (26) expression -> . expression LT expression
+    (27) expression -> . expression LE expression
+    (28) expression -> . expression GT expression
+    (29) expression -> . expression GE expression
+    (30) expression -> . expression EQ expression
+    (31) expression -> . expression NE expression
+    (32) expression -> . expression PLUS expression
+    (33) expression -> . expression MINUS expression
+    (34) expression -> . expression TIMES expression
+    (35) expression -> . expression DIVIDE expression
+    (36) expression -> . LPAREN expression RPAREN
+
+    ID              shift and go to state 18
+    NUMBER          shift and go to state 19
+    STRING          shift and go to state 20
+    TRUE            shift and go to state 21
+    FALSE           shift and go to state 22
+    LPAREN          shift and go to state 23
+
+    expression                     shift and go to state 58
+
+state 40
+
+    (34) expression -> expression TIMES . expression
+    (17) expression -> . ID
+    (18) expression -> . NUMBER
+    (19) expression -> . STRING
+    (20) expression -> . TRUE
+    (21) expression -> . FALSE
+    (22) expression -> . expression UNION expression
+    (23) expression -> . expression INTERSECCION expression
+    (24) expression -> . expression DIFERENCIA expression
+    (25) expression -> . expression EN expression
+    (26) expression -> . expression LT expression
+    (27) expression -> . expression LE expression
+    (28) expression -> . expression GT expression
+    (29) expression -> . expression GE expression
+    (30) expression -> . expression EQ expression
+    (31) expression -> . expression NE expression
+    (32) expression -> . expression PLUS expression
+    (33) expression -> . expression MINUS expression
+    (34) expression -> . expression TIMES expression
+    (35) expression -> . expression DIVIDE expression
+    (36) expression -> . LPAREN expression RPAREN
+
+    ID              shift and go to state 18
+    NUMBER          shift and go to state 19
+    STRING          shift and go to state 20
+    TRUE            shift and go to state 21
+    FALSE           shift and go to state 22
+    LPAREN          shift and go to state 23
+
+    expression                     shift and go to state 59
+
+state 41
+
+    (35) expression -> expression DIVIDE . expression
+    (17) expression -> . ID
+    (18) expression -> . NUMBER
+    (19) expression -> . STRING
+    (20) expression -> . TRUE
+    (21) expression -> . FALSE
+    (22) expression -> . expression UNION expression
+    (23) expression -> . expression INTERSECCION expression
+    (24) expression -> . expression DIFERENCIA expression
+    (25) expression -> . expression EN expression
+    (26) expression -> . expression LT expression
+    (27) expression -> . expression LE expression
+    (28) expression -> . expression GT expression
+    (29) expression -> . expression GE expression
+    (30) expression -> . expression EQ expression
+    (31) expression -> . expression NE expression
+    (32) expression -> . expression PLUS expression
+    (33) expression -> . expression MINUS expression
+    (34) expression -> . expression TIMES expression
+    (35) expression -> . expression DIVIDE expression
+    (36) expression -> . LPAREN expression RPAREN
+
+    ID              shift and go to state 18
+    NUMBER          shift and go to state 19
+    STRING          shift and go to state 20
+    TRUE            shift and go to state 21
+    FALSE           shift and go to state 22
+    LPAREN          shift and go to state 23
+
+    expression                     shift and go to state 60
+
+state 42
+
+    (36) expression -> LPAREN expression . RPAREN
+    (22) expression -> expression . UNION expression
+    (23) expression -> expression . INTERSECCION expression
+    (24) expression -> expression . DIFERENCIA expression
+    (25) expression -> expression . EN expression
+    (26) expression -> expression . LT expression
+    (27) expression -> expression . LE expression
+    (28) expression -> expression . GT expression
+    (29) expression -> expression . GE expression
+    (30) expression -> expression . EQ expression
+    (31) expression -> expression . NE expression
+    (32) expression -> expression . PLUS expression
+    (33) expression -> expression . MINUS expression
+    (34) expression -> expression . TIMES expression
+    (35) expression -> expression . DIVIDE expression
+
+    RPAREN          shift and go to state 61
+    UNION           shift and go to state 28
+    INTERSECCION    shift and go to state 29
+    DIFERENCIA      shift and go to state 30
+    EN              shift and go to state 31
+    LT              shift and go to state 32
+    LE              shift and go to state 33
+    GT              shift and go to state 34
+    GE              shift and go to state 35
+    EQ              shift and go to state 36
+    NE              shift and go to state 37
+    PLUS            shift and go to state 38
+    MINUS           shift and go to state 39
+    TIMES           shift and go to state 40
+    DIVIDE          shift and go to state 41
+
+
+state 43
+
+    (11) if_stmt -> IF LPAREN expression . RPAREN block
+    (12) if_stmt -> IF LPAREN expression . RPAREN block ELSE block
+    (22) expression -> expression . UNION expression
+    (23) expression -> expression . INTERSECCION expression
+    (24) expression -> expression . DIFERENCIA expression
+    (25) expression -> expression . EN expression
+    (26) expression -> expression . LT expression
+    (27) expression -> expression . LE expression
+    (28) expression -> expression . GT expression
+    (29) expression -> expression . GE expression
+    (30) expression -> expression . EQ expression
+    (31) expression -> expression . NE expression
+    (32) expression -> expression . PLUS expression
+    (33) expression -> expression . MINUS expression
+    (34) expression -> expression . TIMES expression
+    (35) expression -> expression . DIVIDE expression
+
+    RPAREN          shift and go to state 62
+    UNION           shift and go to state 28
+    INTERSECCION    shift and go to state 29
+    DIFERENCIA      shift and go to state 30
+    EN              shift and go to state 31
+    LT              shift and go to state 32
+    LE              shift and go to state 33
+    GT              shift and go to state 34
+    GE              shift and go to state 35
+    EQ              shift and go to state 36
+    NE              shift and go to state 37
+    PLUS            shift and go to state 38
+    MINUS           shift and go to state 39
+    TIMES           shift and go to state 40
+    DIVIDE          shift and go to state 41
+
+
+state 44
+
+    (8) declaration -> CONJUNTO ID ASSIGN set_literal . SEMICOLON
+
+    SEMICOLON       shift and go to state 63
+
+
+state 45
+
+    (14) set_literal -> LBRACE . element_list RBRACE
+    (15) element_list -> . element_list COMMA expression
+    (16) element_list -> . expression
+    (17) expression -> . ID
+    (18) expression -> . NUMBER
+    (19) expression -> . STRING
+    (20) expression -> . TRUE
+    (21) expression -> . FALSE
+    (22) expression -> . expression UNION expression
+    (23) expression -> . expression INTERSECCION expression
+    (24) expression -> . expression DIFERENCIA expression
+    (25) expression -> . expression EN expression
+    (26) expression -> . expression LT expression
+    (27) expression -> . expression LE expression
+    (28) expression -> . expression GT expression
+    (29) expression -> . expression GE expression
+    (30) expression -> . expression EQ expression
+    (31) expression -> . expression NE expression
+    (32) expression -> . expression PLUS expression
+    (33) expression -> . expression MINUS expression
+    (34) expression -> . expression TIMES expression
+    (35) expression -> . expression DIVIDE expression
+    (36) expression -> . LPAREN expression RPAREN
+
+    ID              shift and go to state 18
+    NUMBER          shift and go to state 19
+    STRING          shift and go to state 20
+    TRUE            shift and go to state 21
+    FALSE           shift and go to state 22
+    LPAREN          shift and go to state 23
+
+    element_list                   shift and go to state 64
+    expression                     shift and go to state 65
+
+state 46
+
+    (9) assignment -> ID ASSIGN expression SEMICOLON .
+
+    error           reduce using rule 9 (assignment -> ID ASSIGN expression SEMICOLON .)
+    CONJUNTO        reduce using rule 9 (assignment -> ID ASSIGN expression SEMICOLON .)
+    ID              reduce using rule 9 (assignment -> ID ASSIGN expression SEMICOLON .)
+    IMPRIMIR        reduce using rule 9 (assignment -> ID ASSIGN expression SEMICOLON .)
+    IF              reduce using rule 9 (assignment -> ID ASSIGN expression SEMICOLON .)
+    $end            reduce using rule 9 (assignment -> ID ASSIGN expression SEMICOLON .)
+    RBRACE          reduce using rule 9 (assignment -> ID ASSIGN expression SEMICOLON .)
+
+
+state 47
+
+    (22) expression -> expression UNION expression .
+    (22) expression -> expression . UNION expression
+    (23) expression -> expression . INTERSECCION expression
+    (24) expression -> expression . DIFERENCIA expression
+    (25) expression -> expression . EN expression
+    (26) expression -> expression . LT expression
+    (27) expression -> expression . LE expression
+    (28) expression -> expression . GT expression
+    (29) expression -> expression . GE expression
+    (30) expression -> expression . EQ expression
+    (31) expression -> expression . NE expression
+    (32) expression -> expression . PLUS expression
+    (33) expression -> expression . MINUS expression
+    (34) expression -> expression . TIMES expression
+    (35) expression -> expression . DIVIDE expression
+
+    SEMICOLON       reduce using rule 22 (expression -> expression UNION expression .)
+    UNION           reduce using rule 22 (expression -> expression UNION expression .)
+    INTERSECCION    reduce using rule 22 (expression -> expression UNION expression .)
+    DIFERENCIA      reduce using rule 22 (expression -> expression UNION expression .)
+    RPAREN          reduce using rule 22 (expression -> expression UNION expression .)
+    RBRACE          reduce using rule 22 (expression -> expression UNION expression .)
+    COMMA           reduce using rule 22 (expression -> expression UNION expression .)
+    EN              shift and go to state 31
+    LT              shift and go to state 32
+    LE              shift and go to state 33
+    GT              shift and go to state 34
+    GE              shift and go to state 35
+    EQ              shift and go to state 36
+    NE              shift and go to state 37
+    PLUS            shift and go to state 38
+    MINUS           shift and go to state 39
+    TIMES           shift and go to state 40
+    DIVIDE          shift and go to state 41
+
+  ! EN              [ reduce using rule 22 (expression -> expression UNION expression .) ]
+  ! LT              [ reduce using rule 22 (expression -> expression UNION expression .) ]
+  ! LE              [ reduce using rule 22 (expression -> expression UNION expression .) ]
+  ! GT              [ reduce using rule 22 (expression -> expression UNION expression .) ]
+  ! GE              [ reduce using rule 22 (expression -> expression UNION expression .) ]
+  ! EQ              [ reduce using rule 22 (expression -> expression UNION expression .) ]
+  ! NE              [ reduce using rule 22 (expression -> expression UNION expression .) ]
+  ! PLUS            [ reduce using rule 22 (expression -> expression UNION expression .) ]
+  ! MINUS           [ reduce using rule 22 (expression -> expression UNION expression .) ]
+  ! TIMES           [ reduce using rule 22 (expression -> expression UNION expression .) ]
+  ! DIVIDE          [ reduce using rule 22 (expression -> expression UNION expression .) ]
+  ! UNION           [ shift and go to state 28 ]
+  ! INTERSECCION    [ shift and go to state 29 ]
+  ! DIFERENCIA      [ shift and go to state 30 ]
+
+
+state 48
+
+    (23) expression -> expression INTERSECCION expression .
+    (22) expression -> expression . UNION expression
+    (23) expression -> expression . INTERSECCION expression
+    (24) expression -> expression . DIFERENCIA expression
+    (25) expression -> expression . EN expression
+    (26) expression -> expression . LT expression
+    (27) expression -> expression . LE expression
+    (28) expression -> expression . GT expression
+    (29) expression -> expression . GE expression
+    (30) expression -> expression . EQ expression
+    (31) expression -> expression . NE expression
+    (32) expression -> expression . PLUS expression
+    (33) expression -> expression . MINUS expression
+    (34) expression -> expression . TIMES expression
+    (35) expression -> expression . DIVIDE expression
+
+    SEMICOLON       reduce using rule 23 (expression -> expression INTERSECCION expression .)
+    UNION           reduce using rule 23 (expression -> expression INTERSECCION expression .)
+    INTERSECCION    reduce using rule 23 (expression -> expression INTERSECCION expression .)
+    DIFERENCIA      reduce using rule 23 (expression -> expression INTERSECCION expression .)
+    RPAREN          reduce using rule 23 (expression -> expression INTERSECCION expression .)
+    RBRACE          reduce using rule 23 (expression -> expression INTERSECCION expression .)
+    COMMA           reduce using rule 23 (expression -> expression INTERSECCION expression .)
+    EN              shift and go to state 31
+    LT              shift and go to state 32
+    LE              shift and go to state 33
+    GT              shift and go to state 34
+    GE              shift and go to state 35
+    EQ              shift and go to state 36
+    NE              shift and go to state 37
+    PLUS            shift and go to state 38
+    MINUS           shift and go to state 39
+    TIMES           shift and go to state 40
+    DIVIDE          shift and go to state 41
+
+  ! EN              [ reduce using rule 23 (expression -> expression INTERSECCION expression .) ]
+  ! LT              [ reduce using rule 23 (expression -> expression INTERSECCION expression .) ]
+  ! LE              [ reduce using rule 23 (expression -> expression INTERSECCION expression .) ]
+  ! GT              [ reduce using rule 23 (expression -> expression INTERSECCION expression .) ]
+  ! GE              [ reduce using rule 23 (expression -> expression INTERSECCION expression .) ]
+  ! EQ              [ reduce using rule 23 (expression -> expression INTERSECCION expression .) ]
+  ! NE              [ reduce using rule 23 (expression -> expression INTERSECCION expression .) ]
+  ! PLUS            [ reduce using rule 23 (expression -> expression INTERSECCION expression .) ]
+  ! MINUS           [ reduce using rule 23 (expression -> expression INTERSECCION expression .) ]
+  ! TIMES           [ reduce using rule 23 (expression -> expression INTERSECCION expression .) ]
+  ! DIVIDE          [ reduce using rule 23 (expression -> expression INTERSECCION expression .) ]
+  ! UNION           [ shift and go to state 28 ]
+  ! INTERSECCION    [ shift and go to state 29 ]
+  ! DIFERENCIA      [ shift and go to state 30 ]
+
+
+state 49
+
+    (24) expression -> expression DIFERENCIA expression .
+    (22) expression -> expression . UNION expression
+    (23) expression -> expression . INTERSECCION expression
+    (24) expression -> expression . DIFERENCIA expression
+    (25) expression -> expression . EN expression
+    (26) expression -> expression . LT expression
+    (27) expression -> expression . LE expression
+    (28) expression -> expression . GT expression
+    (29) expression -> expression . GE expression
+    (30) expression -> expression . EQ expression
+    (31) expression -> expression . NE expression
+    (32) expression -> expression . PLUS expression
+    (33) expression -> expression . MINUS expression
+    (34) expression -> expression . TIMES expression
+    (35) expression -> expression . DIVIDE expression
+
+    SEMICOLON       reduce using rule 24 (expression -> expression DIFERENCIA expression .)
+    UNION           reduce using rule 24 (expression -> expression DIFERENCIA expression .)
+    INTERSECCION    reduce using rule 24 (expression -> expression DIFERENCIA expression .)
+    DIFERENCIA      reduce using rule 24 (expression -> expression DIFERENCIA expression .)
+    RPAREN          reduce using rule 24 (expression -> expression DIFERENCIA expression .)
+    RBRACE          reduce using rule 24 (expression -> expression DIFERENCIA expression .)
+    COMMA           reduce using rule 24 (expression -> expression DIFERENCIA expression .)
+    EN              shift and go to state 31
+    LT              shift and go to state 32
+    LE              shift and go to state 33
+    GT              shift and go to state 34
+    GE              shift and go to state 35
+    EQ              shift and go to state 36
+    NE              shift and go to state 37
+    PLUS            shift and go to state 38
+    MINUS           shift and go to state 39
+    TIMES           shift and go to state 40
+    DIVIDE          shift and go to state 41
+
+  ! EN              [ reduce using rule 24 (expression -> expression DIFERENCIA expression .) ]
+  ! LT              [ reduce using rule 24 (expression -> expression DIFERENCIA expression .) ]
+  ! LE              [ reduce using rule 24 (expression -> expression DIFERENCIA expression .) ]
+  ! GT              [ reduce using rule 24 (expression -> expression DIFERENCIA expression .) ]
+  ! GE              [ reduce using rule 24 (expression -> expression DIFERENCIA expression .) ]
+  ! EQ              [ reduce using rule 24 (expression -> expression DIFERENCIA expression .) ]
+  ! NE              [ reduce using rule 24 (expression -> expression DIFERENCIA expression .) ]
+  ! PLUS            [ reduce using rule 24 (expression -> expression DIFERENCIA expression .) ]
+  ! MINUS           [ reduce using rule 24 (expression -> expression DIFERENCIA expression .) ]
+  ! TIMES           [ reduce using rule 24 (expression -> expression DIFERENCIA expression .) ]
+  ! DIVIDE          [ reduce using rule 24 (expression -> expression DIFERENCIA expression .) ]
+  ! UNION           [ shift and go to state 28 ]
+  ! INTERSECCION    [ shift and go to state 29 ]
+  ! DIFERENCIA      [ shift and go to state 30 ]
+
+
+state 50
+
+    (25) expression -> expression EN expression .
+    (22) expression -> expression . UNION expression
+    (23) expression -> expression . INTERSECCION expression
+    (24) expression -> expression . DIFERENCIA expression
+    (25) expression -> expression . EN expression
+    (26) expression -> expression . LT expression
+    (27) expression -> expression . LE expression
+    (28) expression -> expression . GT expression
+    (29) expression -> expression . GE expression
+    (30) expression -> expression . EQ expression
+    (31) expression -> expression . NE expression
+    (32) expression -> expression . PLUS expression
+    (33) expression -> expression . MINUS expression
+    (34) expression -> expression . TIMES expression
+    (35) expression -> expression . DIVIDE expression
+
+    SEMICOLON       reduce using rule 25 (expression -> expression EN expression .)
+    UNION           reduce using rule 25 (expression -> expression EN expression .)
+    INTERSECCION    reduce using rule 25 (expression -> expression EN expression .)
+    DIFERENCIA      reduce using rule 25 (expression -> expression EN expression .)
+    EN              reduce using rule 25 (expression -> expression EN expression .)
+    LT              reduce using rule 25 (expression -> expression EN expression .)
+    LE              reduce using rule 25 (expression -> expression EN expression .)
+    GT              reduce using rule 25 (expression -> expression EN expression .)
+    GE              reduce using rule 25 (expression -> expression EN expression .)
+    EQ              reduce using rule 25 (expression -> expression EN expression .)
+    NE              reduce using rule 25 (expression -> expression EN expression .)
+    PLUS            reduce using rule 25 (expression -> expression EN expression .)
+    MINUS           reduce using rule 25 (expression -> expression EN expression .)
+    TIMES           reduce using rule 25 (expression -> expression EN expression .)
+    DIVIDE          reduce using rule 25 (expression -> expression EN expression .)
+    RPAREN          reduce using rule 25 (expression -> expression EN expression .)
+    RBRACE          reduce using rule 25 (expression -> expression EN expression .)
+    COMMA           reduce using rule 25 (expression -> expression EN expression .)
+
+  ! UNION           [ shift and go to state 28 ]
+  ! INTERSECCION    [ shift and go to state 29 ]
+  ! DIFERENCIA      [ shift and go to state 30 ]
+  ! EN              [ shift and go to state 31 ]
+  ! LT              [ shift and go to state 32 ]
+  ! LE              [ shift and go to state 33 ]
+  ! GT              [ shift and go to state 34 ]
+  ! GE              [ shift and go to state 35 ]
+  ! EQ              [ shift and go to state 36 ]
+  ! NE              [ shift and go to state 37 ]
+  ! PLUS            [ shift and go to state 38 ]
+  ! MINUS           [ shift and go to state 39 ]
+  ! TIMES           [ shift and go to state 40 ]
+  ! DIVIDE          [ shift and go to state 41 ]
+
+
+state 51
+
+    (26) expression -> expression LT expression .
+    (22) expression -> expression . UNION expression
+    (23) expression -> expression . INTERSECCION expression
+    (24) expression -> expression . DIFERENCIA expression
+    (25) expression -> expression . EN expression
+    (26) expression -> expression . LT expression
+    (27) expression -> expression . LE expression
+    (28) expression -> expression . GT expression
+    (29) expression -> expression . GE expression
+    (30) expression -> expression . EQ expression
+    (31) expression -> expression . NE expression
+    (32) expression -> expression . PLUS expression
+    (33) expression -> expression . MINUS expression
+    (34) expression -> expression . TIMES expression
+    (35) expression -> expression . DIVIDE expression
+
+    SEMICOLON       reduce using rule 26 (expression -> expression LT expression .)
+    UNION           reduce using rule 26 (expression -> expression LT expression .)
+    INTERSECCION    reduce using rule 26 (expression -> expression LT expression .)
+    DIFERENCIA      reduce using rule 26 (expression -> expression LT expression .)
+    LT              reduce using rule 26 (expression -> expression LT expression .)
+    LE              reduce using rule 26 (expression -> expression LT expression .)
+    GT              reduce using rule 26 (expression -> expression LT expression .)
+    GE              reduce using rule 26 (expression -> expression LT expression .)
+    EQ              reduce using rule 26 (expression -> expression LT expression .)
+    NE              reduce using rule 26 (expression -> expression LT expression .)
+    PLUS            reduce using rule 26 (expression -> expression LT expression .)
+    MINUS           reduce using rule 26 (expression -> expression LT expression .)
+    TIMES           reduce using rule 26 (expression -> expression LT expression .)
+    DIVIDE          reduce using rule 26 (expression -> expression LT expression .)
+    RPAREN          reduce using rule 26 (expression -> expression LT expression .)
+    RBRACE          reduce using rule 26 (expression -> expression LT expression .)
+    COMMA           reduce using rule 26 (expression -> expression LT expression .)
+    EN              shift and go to state 31
+
+  ! EN              [ reduce using rule 26 (expression -> expression LT expression .) ]
+  ! UNION           [ shift and go to state 28 ]
+  ! INTERSECCION    [ shift and go to state 29 ]
+  ! DIFERENCIA      [ shift and go to state 30 ]
+  ! LT              [ shift and go to state 32 ]
+  ! LE              [ shift and go to state 33 ]
+  ! GT              [ shift and go to state 34 ]
+  ! GE              [ shift and go to state 35 ]
+  ! EQ              [ shift and go to state 36 ]
+  ! NE              [ shift and go to state 37 ]
+  ! PLUS            [ shift and go to state 38 ]
+  ! MINUS           [ shift and go to state 39 ]
+  ! TIMES           [ shift and go to state 40 ]
+  ! DIVIDE          [ shift and go to state 41 ]
+
+
+state 52
+
+    (27) expression -> expression LE expression .
+    (22) expression -> expression . UNION expression
+    (23) expression -> expression . INTERSECCION expression
+    (24) expression -> expression . DIFERENCIA expression
+    (25) expression -> expression . EN expression
+    (26) expression -> expression . LT expression
+    (27) expression -> expression . LE expression
+    (28) expression -> expression . GT expression
+    (29) expression -> expression . GE expression
+    (30) expression -> expression . EQ expression
+    (31) expression -> expression . NE expression
+    (32) expression -> expression . PLUS expression
+    (33) expression -> expression . MINUS expression
+    (34) expression -> expression . TIMES expression
+    (35) expression -> expression . DIVIDE expression
+
+    SEMICOLON       reduce using rule 27 (expression -> expression LE expression .)
+    UNION           reduce using rule 27 (expression -> expression LE expression .)
+    INTERSECCION    reduce using rule 27 (expression -> expression LE expression .)
+    DIFERENCIA      reduce using rule 27 (expression -> expression LE expression .)
+    LT              reduce using rule 27 (expression -> expression LE expression .)
+    LE              reduce using rule 27 (expression -> expression LE expression .)
+    GT              reduce using rule 27 (expression -> expression LE expression .)
+    GE              reduce using rule 27 (expression -> expression LE expression .)
+    EQ              reduce using rule 27 (expression -> expression LE expression .)
+    NE              reduce using rule 27 (expression -> expression LE expression .)
+    PLUS            reduce using rule 27 (expression -> expression LE expression .)
+    MINUS           reduce using rule 27 (expression -> expression LE expression .)
+    TIMES           reduce using rule 27 (expression -> expression LE expression .)
+    DIVIDE          reduce using rule 27 (expression -> expression LE expression .)
+    RPAREN          reduce using rule 27 (expression -> expression LE expression .)
+    RBRACE          reduce using rule 27 (expression -> expression LE expression .)
+    COMMA           reduce using rule 27 (expression -> expression LE expression .)
+    EN              shift and go to state 31
+
+  ! EN              [ reduce using rule 27 (expression -> expression LE expression .) ]
+  ! UNION           [ shift and go to state 28 ]
+  ! INTERSECCION    [ shift and go to state 29 ]
+  ! DIFERENCIA      [ shift and go to state 30 ]
+  ! LT              [ shift and go to state 32 ]
+  ! LE              [ shift and go to state 33 ]
+  ! GT              [ shift and go to state 34 ]
+  ! GE              [ shift and go to state 35 ]
+  ! EQ              [ shift and go to state 36 ]
+  ! NE              [ shift and go to state 37 ]
+  ! PLUS            [ shift and go to state 38 ]
+  ! MINUS           [ shift and go to state 39 ]
+  ! TIMES           [ shift and go to state 40 ]
+  ! DIVIDE          [ shift and go to state 41 ]
+
+
+state 53
+
+    (28) expression -> expression GT expression .
+    (22) expression -> expression . UNION expression
+    (23) expression -> expression . INTERSECCION expression
+    (24) expression -> expression . DIFERENCIA expression
+    (25) expression -> expression . EN expression
+    (26) expression -> expression . LT expression
+    (27) expression -> expression . LE expression
+    (28) expression -> expression . GT expression
+    (29) expression -> expression . GE expression
+    (30) expression -> expression . EQ expression
+    (31) expression -> expression . NE expression
+    (32) expression -> expression . PLUS expression
+    (33) expression -> expression . MINUS expression
+    (34) expression -> expression . TIMES expression
+    (35) expression -> expression . DIVIDE expression
+
+    SEMICOLON       reduce using rule 28 (expression -> expression GT expression .)
+    UNION           reduce using rule 28 (expression -> expression GT expression .)
+    INTERSECCION    reduce using rule 28 (expression -> expression GT expression .)
+    DIFERENCIA      reduce using rule 28 (expression -> expression GT expression .)
+    LT              reduce using rule 28 (expression -> expression GT expression .)
+    LE              reduce using rule 28 (expression -> expression GT expression .)
+    GT              reduce using rule 28 (expression -> expression GT expression .)
+    GE              reduce using rule 28 (expression -> expression GT expression .)
+    EQ              reduce using rule 28 (expression -> expression GT expression .)
+    NE              reduce using rule 28 (expression -> expression GT expression .)
+    PLUS            reduce using rule 28 (expression -> expression GT expression .)
+    MINUS           reduce using rule 28 (expression -> expression GT expression .)
+    TIMES           reduce using rule 28 (expression -> expression GT expression .)
+    DIVIDE          reduce using rule 28 (expression -> expression GT expression .)
+    RPAREN          reduce using rule 28 (expression -> expression GT expression .)
+    RBRACE          reduce using rule 28 (expression -> expression GT expression .)
+    COMMA           reduce using rule 28 (expression -> expression GT expression .)
+    EN              shift and go to state 31
+
+  ! EN              [ reduce using rule 28 (expression -> expression GT expression .) ]
+  ! UNION           [ shift and go to state 28 ]
+  ! INTERSECCION    [ shift and go to state 29 ]
+  ! DIFERENCIA      [ shift and go to state 30 ]
+  ! LT              [ shift and go to state 32 ]
+  ! LE              [ shift and go to state 33 ]
+  ! GT              [ shift and go to state 34 ]
+  ! GE              [ shift and go to state 35 ]
+  ! EQ              [ shift and go to state 36 ]
+  ! NE              [ shift and go to state 37 ]
+  ! PLUS            [ shift and go to state 38 ]
+  ! MINUS           [ shift and go to state 39 ]
+  ! TIMES           [ shift and go to state 40 ]
+  ! DIVIDE          [ shift and go to state 41 ]
+
+
+state 54
+
+    (29) expression -> expression GE expression .
+    (22) expression -> expression . UNION expression
+    (23) expression -> expression . INTERSECCION expression
+    (24) expression -> expression . DIFERENCIA expression
+    (25) expression -> expression . EN expression
+    (26) expression -> expression . LT expression
+    (27) expression -> expression . LE expression
+    (28) expression -> expression . GT expression
+    (29) expression -> expression . GE expression
+    (30) expression -> expression . EQ expression
+    (31) expression -> expression . NE expression
+    (32) expression -> expression . PLUS expression
+    (33) expression -> expression . MINUS expression
+    (34) expression -> expression . TIMES expression
+    (35) expression -> expression . DIVIDE expression
+
+    SEMICOLON       reduce using rule 29 (expression -> expression GE expression .)
+    UNION           reduce using rule 29 (expression -> expression GE expression .)
+    INTERSECCION    reduce using rule 29 (expression -> expression GE expression .)
+    DIFERENCIA      reduce using rule 29 (expression -> expression GE expression .)
+    LT              reduce using rule 29 (expression -> expression GE expression .)
+    LE              reduce using rule 29 (expression -> expression GE expression .)
+    GT              reduce using rule 29 (expression -> expression GE expression .)
+    GE              reduce using rule 29 (expression -> expression GE expression .)
+    EQ              reduce using rule 29 (expression -> expression GE expression .)
+    NE              reduce using rule 29 (expression -> expression GE expression .)
+    PLUS            reduce using rule 29 (expression -> expression GE expression .)
+    MINUS           reduce using rule 29 (expression -> expression GE expression .)
+    TIMES           reduce using rule 29 (expression -> expression GE expression .)
+    DIVIDE          reduce using rule 29 (expression -> expression GE expression .)
+    RPAREN          reduce using rule 29 (expression -> expression GE expression .)
+    RBRACE          reduce using rule 29 (expression -> expression GE expression .)
+    COMMA           reduce using rule 29 (expression -> expression GE expression .)
+    EN              shift and go to state 31
+
+  ! EN              [ reduce using rule 29 (expression -> expression GE expression .) ]
+  ! UNION           [ shift and go to state 28 ]
+  ! INTERSECCION    [ shift and go to state 29 ]
+  ! DIFERENCIA      [ shift and go to state 30 ]
+  ! LT              [ shift and go to state 32 ]
+  ! LE              [ shift and go to state 33 ]
+  ! GT              [ shift and go to state 34 ]
+  ! GE              [ shift and go to state 35 ]
+  ! EQ              [ shift and go to state 36 ]
+  ! NE              [ shift and go to state 37 ]
+  ! PLUS            [ shift and go to state 38 ]
+  ! MINUS           [ shift and go to state 39 ]
+  ! TIMES           [ shift and go to state 40 ]
+  ! DIVIDE          [ shift and go to state 41 ]
+
+
+state 55
+
+    (30) expression -> expression EQ expression .
+    (22) expression -> expression . UNION expression
+    (23) expression -> expression . INTERSECCION expression
+    (24) expression -> expression . DIFERENCIA expression
+    (25) expression -> expression . EN expression
+    (26) expression -> expression . LT expression
+    (27) expression -> expression . LE expression
+    (28) expression -> expression . GT expression
+    (29) expression -> expression . GE expression
+    (30) expression -> expression . EQ expression
+    (31) expression -> expression . NE expression
+    (32) expression -> expression . PLUS expression
+    (33) expression -> expression . MINUS expression
+    (34) expression -> expression . TIMES expression
+    (35) expression -> expression . DIVIDE expression
+
+    SEMICOLON       reduce using rule 30 (expression -> expression EQ expression .)
+    UNION           reduce using rule 30 (expression -> expression EQ expression .)
+    INTERSECCION    reduce using rule 30 (expression -> expression EQ expression .)
+    DIFERENCIA      reduce using rule 30 (expression -> expression EQ expression .)
+    LT              reduce using rule 30 (expression -> expression EQ expression .)
+    LE              reduce using rule 30 (expression -> expression EQ expression .)
+    GT              reduce using rule 30 (expression -> expression EQ expression .)
+    GE              reduce using rule 30 (expression -> expression EQ expression .)
+    EQ              reduce using rule 30 (expression -> expression EQ expression .)
+    NE              reduce using rule 30 (expression -> expression EQ expression .)
+    PLUS            reduce using rule 30 (expression -> expression EQ expression .)
+    MINUS           reduce using rule 30 (expression -> expression EQ expression .)
+    TIMES           reduce using rule 30 (expression -> expression EQ expression .)
+    DIVIDE          reduce using rule 30 (expression -> expression EQ expression .)
+    RPAREN          reduce using rule 30 (expression -> expression EQ expression .)
+    RBRACE          reduce using rule 30 (expression -> expression EQ expression .)
+    COMMA           reduce using rule 30 (expression -> expression EQ expression .)
+    EN              shift and go to state 31
+
+  ! EN              [ reduce using rule 30 (expression -> expression EQ expression .) ]
+  ! UNION           [ shift and go to state 28 ]
+  ! INTERSECCION    [ shift and go to state 29 ]
+  ! DIFERENCIA      [ shift and go to state 30 ]
+  ! LT              [ shift and go to state 32 ]
+  ! LE              [ shift and go to state 33 ]
+  ! GT              [ shift and go to state 34 ]
+  ! GE              [ shift and go to state 35 ]
+  ! EQ              [ shift and go to state 36 ]
+  ! NE              [ shift and go to state 37 ]
+  ! PLUS            [ shift and go to state 38 ]
+  ! MINUS           [ shift and go to state 39 ]
+  ! TIMES           [ shift and go to state 40 ]
+  ! DIVIDE          [ shift and go to state 41 ]
+
+
+state 56
+
+    (31) expression -> expression NE expression .
+    (22) expression -> expression . UNION expression
+    (23) expression -> expression . INTERSECCION expression
+    (24) expression -> expression . DIFERENCIA expression
+    (25) expression -> expression . EN expression
+    (26) expression -> expression . LT expression
+    (27) expression -> expression . LE expression
+    (28) expression -> expression . GT expression
+    (29) expression -> expression . GE expression
+    (30) expression -> expression . EQ expression
+    (31) expression -> expression . NE expression
+    (32) expression -> expression . PLUS expression
+    (33) expression -> expression . MINUS expression
+    (34) expression -> expression . TIMES expression
+    (35) expression -> expression . DIVIDE expression
+
+    SEMICOLON       reduce using rule 31 (expression -> expression NE expression .)
+    UNION           reduce using rule 31 (expression -> expression NE expression .)
+    INTERSECCION    reduce using rule 31 (expression -> expression NE expression .)
+    DIFERENCIA      reduce using rule 31 (expression -> expression NE expression .)
+    LT              reduce using rule 31 (expression -> expression NE expression .)
+    LE              reduce using rule 31 (expression -> expression NE expression .)
+    GT              reduce using rule 31 (expression -> expression NE expression .)
+    GE              reduce using rule 31 (expression -> expression NE expression .)
+    EQ              reduce using rule 31 (expression -> expression NE expression .)
+    NE              reduce using rule 31 (expression -> expression NE expression .)
+    PLUS            reduce using rule 31 (expression -> expression NE expression .)
+    MINUS           reduce using rule 31 (expression -> expression NE expression .)
+    TIMES           reduce using rule 31 (expression -> expression NE expression .)
+    DIVIDE          reduce using rule 31 (expression -> expression NE expression .)
+    RPAREN          reduce using rule 31 (expression -> expression NE expression .)
+    RBRACE          reduce using rule 31 (expression -> expression NE expression .)
+    COMMA           reduce using rule 31 (expression -> expression NE expression .)
+    EN              shift and go to state 31
+
+  ! EN              [ reduce using rule 31 (expression -> expression NE expression .) ]
+  ! UNION           [ shift and go to state 28 ]
+  ! INTERSECCION    [ shift and go to state 29 ]
+  ! DIFERENCIA      [ shift and go to state 30 ]
+  ! LT              [ shift and go to state 32 ]
+  ! LE              [ shift and go to state 33 ]
+  ! GT              [ shift and go to state 34 ]
+  ! GE              [ shift and go to state 35 ]
+  ! EQ              [ shift and go to state 36 ]
+  ! NE              [ shift and go to state 37 ]
+  ! PLUS            [ shift and go to state 38 ]
+  ! MINUS           [ shift and go to state 39 ]
+  ! TIMES           [ shift and go to state 40 ]
+  ! DIVIDE          [ shift and go to state 41 ]
+
+
+state 57
+
+    (32) expression -> expression PLUS expression .
+    (22) expression -> expression . UNION expression
+    (23) expression -> expression . INTERSECCION expression
+    (24) expression -> expression . DIFERENCIA expression
+    (25) expression -> expression . EN expression
+    (26) expression -> expression . LT expression
+    (27) expression -> expression . LE expression
+    (28) expression -> expression . GT expression
+    (29) expression -> expression . GE expression
+    (30) expression -> expression . EQ expression
+    (31) expression -> expression . NE expression
+    (32) expression -> expression . PLUS expression
+    (33) expression -> expression . MINUS expression
+    (34) expression -> expression . TIMES expression
+    (35) expression -> expression . DIVIDE expression
+
+    SEMICOLON       reduce using rule 32 (expression -> expression PLUS expression .)
+    UNION           reduce using rule 32 (expression -> expression PLUS expression .)
+    INTERSECCION    reduce using rule 32 (expression -> expression PLUS expression .)
+    DIFERENCIA      reduce using rule 32 (expression -> expression PLUS expression .)
+    PLUS            reduce using rule 32 (expression -> expression PLUS expression .)
+    MINUS           reduce using rule 32 (expression -> expression PLUS expression .)
+    RPAREN          reduce using rule 32 (expression -> expression PLUS expression .)
+    RBRACE          reduce using rule 32 (expression -> expression PLUS expression .)
+    COMMA           reduce using rule 32 (expression -> expression PLUS expression .)
+    EN              shift and go to state 31
+    LT              shift and go to state 32
+    LE              shift and go to state 33
+    GT              shift and go to state 34
+    GE              shift and go to state 35
+    EQ              shift and go to state 36
+    NE              shift and go to state 37
+    TIMES           shift and go to state 40
+    DIVIDE          shift and go to state 41
+
+  ! EN              [ reduce using rule 32 (expression -> expression PLUS expression .) ]
+  ! LT              [ reduce using rule 32 (expression -> expression PLUS expression .) ]
+  ! LE              [ reduce using rule 32 (expression -> expression PLUS expression .) ]
+  ! GT              [ reduce using rule 32 (expression -> expression PLUS expression .) ]
+  ! GE              [ reduce using rule 32 (expression -> expression PLUS expression .) ]
+  ! EQ              [ reduce using rule 32 (expression -> expression PLUS expression .) ]
+  ! NE              [ reduce using rule 32 (expression -> expression PLUS expression .) ]
+  ! TIMES           [ reduce using rule 32 (expression -> expression PLUS expression .) ]
+  ! DIVIDE          [ reduce using rule 32 (expression -> expression PLUS expression .) ]
+  ! UNION           [ shift and go to state 28 ]
+  ! INTERSECCION    [ shift and go to state 29 ]
+  ! DIFERENCIA      [ shift and go to state 30 ]
+  ! PLUS            [ shift and go to state 38 ]
+  ! MINUS           [ shift and go to state 39 ]
+
+
+state 58
+
+    (33) expression -> expression MINUS expression .
+    (22) expression -> expression . UNION expression
+    (23) expression -> expression . INTERSECCION expression
+    (24) expression -> expression . DIFERENCIA expression
+    (25) expression -> expression . EN expression
+    (26) expression -> expression . LT expression
+    (27) expression -> expression . LE expression
+    (28) expression -> expression . GT expression
+    (29) expression -> expression . GE expression
+    (30) expression -> expression . EQ expression
+    (31) expression -> expression . NE expression
+    (32) expression -> expression . PLUS expression
+    (33) expression -> expression . MINUS expression
+    (34) expression -> expression . TIMES expression
+    (35) expression -> expression . DIVIDE expression
+
+    SEMICOLON       reduce using rule 33 (expression -> expression MINUS expression .)
+    UNION           reduce using rule 33 (expression -> expression MINUS expression .)
+    INTERSECCION    reduce using rule 33 (expression -> expression MINUS expression .)
+    DIFERENCIA      reduce using rule 33 (expression -> expression MINUS expression .)
+    PLUS            reduce using rule 33 (expression -> expression MINUS expression .)
+    MINUS           reduce using rule 33 (expression -> expression MINUS expression .)
+    RPAREN          reduce using rule 33 (expression -> expression MINUS expression .)
+    RBRACE          reduce using rule 33 (expression -> expression MINUS expression .)
+    COMMA           reduce using rule 33 (expression -> expression MINUS expression .)
+    EN              shift and go to state 31
+    LT              shift and go to state 32
+    LE              shift and go to state 33
+    GT              shift and go to state 34
+    GE              shift and go to state 35
+    EQ              shift and go to state 36
+    NE              shift and go to state 37
+    TIMES           shift and go to state 40
+    DIVIDE          shift and go to state 41
+
+  ! EN              [ reduce using rule 33 (expression -> expression MINUS expression .) ]
+  ! LT              [ reduce using rule 33 (expression -> expression MINUS expression .) ]
+  ! LE              [ reduce using rule 33 (expression -> expression MINUS expression .) ]
+  ! GT              [ reduce using rule 33 (expression -> expression MINUS expression .) ]
+  ! GE              [ reduce using rule 33 (expression -> expression MINUS expression .) ]
+  ! EQ              [ reduce using rule 33 (expression -> expression MINUS expression .) ]
+  ! NE              [ reduce using rule 33 (expression -> expression MINUS expression .) ]
+  ! TIMES           [ reduce using rule 33 (expression -> expression MINUS expression .) ]
+  ! DIVIDE          [ reduce using rule 33 (expression -> expression MINUS expression .) ]
+  ! UNION           [ shift and go to state 28 ]
+  ! INTERSECCION    [ shift and go to state 29 ]
+  ! DIFERENCIA      [ shift and go to state 30 ]
+  ! PLUS            [ shift and go to state 38 ]
+  ! MINUS           [ shift and go to state 39 ]
+
+
+state 59
+
+    (34) expression -> expression TIMES expression .
+    (22) expression -> expression . UNION expression
+    (23) expression -> expression . INTERSECCION expression
+    (24) expression -> expression . DIFERENCIA expression
+    (25) expression -> expression . EN expression
+    (26) expression -> expression . LT expression
+    (27) expression -> expression . LE expression
+    (28) expression -> expression . GT expression
+    (29) expression -> expression . GE expression
+    (30) expression -> expression . EQ expression
+    (31) expression -> expression . NE expression
+    (32) expression -> expression . PLUS expression
+    (33) expression -> expression . MINUS expression
+    (34) expression -> expression . TIMES expression
+    (35) expression -> expression . DIVIDE expression
+
+    SEMICOLON       reduce using rule 34 (expression -> expression TIMES expression .)
+    UNION           reduce using rule 34 (expression -> expression TIMES expression .)
+    INTERSECCION    reduce using rule 34 (expression -> expression TIMES expression .)
+    DIFERENCIA      reduce using rule 34 (expression -> expression TIMES expression .)
+    PLUS            reduce using rule 34 (expression -> expression TIMES expression .)
+    MINUS           reduce using rule 34 (expression -> expression TIMES expression .)
+    TIMES           reduce using rule 34 (expression -> expression TIMES expression .)
+    DIVIDE          reduce using rule 34 (expression -> expression TIMES expression .)
+    RPAREN          reduce using rule 34 (expression -> expression TIMES expression .)
+    RBRACE          reduce using rule 34 (expression -> expression TIMES expression .)
+    COMMA           reduce using rule 34 (expression -> expression TIMES expression .)
+    EN              shift and go to state 31
+    LT              shift and go to state 32
+    LE              shift and go to state 33
+    GT              shift and go to state 34
+    GE              shift and go to state 35
+    EQ              shift and go to state 36
+    NE              shift and go to state 37
+
+  ! EN              [ reduce using rule 34 (expression -> expression TIMES expression .) ]
+  ! LT              [ reduce using rule 34 (expression -> expression TIMES expression .) ]
+  ! LE              [ reduce using rule 34 (expression -> expression TIMES expression .) ]
+  ! GT              [ reduce using rule 34 (expression -> expression TIMES expression .) ]
+  ! GE              [ reduce using rule 34 (expression -> expression TIMES expression .) ]
+  ! EQ              [ reduce using rule 34 (expression -> expression TIMES expression .) ]
+  ! NE              [ reduce using rule 34 (expression -> expression TIMES expression .) ]
+  ! UNION           [ shift and go to state 28 ]
+  ! INTERSECCION    [ shift and go to state 29 ]
+  ! DIFERENCIA      [ shift and go to state 30 ]
+  ! PLUS            [ shift and go to state 38 ]
+  ! MINUS           [ shift and go to state 39 ]
+  ! TIMES           [ shift and go to state 40 ]
+  ! DIVIDE          [ shift and go to state 41 ]
+
+
+state 60
+
+    (35) expression -> expression DIVIDE expression .
+    (22) expression -> expression . UNION expression
+    (23) expression -> expression . INTERSECCION expression
+    (24) expression -> expression . DIFERENCIA expression
+    (25) expression -> expression . EN expression
+    (26) expression -> expression . LT expression
+    (27) expression -> expression . LE expression
+    (28) expression -> expression . GT expression
+    (29) expression -> expression . GE expression
+    (30) expression -> expression . EQ expression
+    (31) expression -> expression . NE expression
+    (32) expression -> expression . PLUS expression
+    (33) expression -> expression . MINUS expression
+    (34) expression -> expression . TIMES expression
+    (35) expression -> expression . DIVIDE expression
+
+    SEMICOLON       reduce using rule 35 (expression -> expression DIVIDE expression .)
+    UNION           reduce using rule 35 (expression -> expression DIVIDE expression .)
+    INTERSECCION    reduce using rule 35 (expression -> expression DIVIDE expression .)
+    DIFERENCIA      reduce using rule 35 (expression -> expression DIVIDE expression .)
+    PLUS            reduce using rule 35 (expression -> expression DIVIDE expression .)
+    MINUS           reduce using rule 35 (expression -> expression DIVIDE expression .)
+    TIMES           reduce using rule 35 (expression -> expression DIVIDE expression .)
+    DIVIDE          reduce using rule 35 (expression -> expression DIVIDE expression .)
+    RPAREN          reduce using rule 35 (expression -> expression DIVIDE expression .)
+    RBRACE          reduce using rule 35 (expression -> expression DIVIDE expression .)
+    COMMA           reduce using rule 35 (expression -> expression DIVIDE expression .)
+    EN              shift and go to state 31
+    LT              shift and go to state 32
+    LE              shift and go to state 33
+    GT              shift and go to state 34
+    GE              shift and go to state 35
+    EQ              shift and go to state 36
+    NE              shift and go to state 37
+
+  ! EN              [ reduce using rule 35 (expression -> expression DIVIDE expression .) ]
+  ! LT              [ reduce using rule 35 (expression -> expression DIVIDE expression .) ]
+  ! LE              [ reduce using rule 35 (expression -> expression DIVIDE expression .) ]
+  ! GT              [ reduce using rule 35 (expression -> expression DIVIDE expression .) ]
+  ! GE              [ reduce using rule 35 (expression -> expression DIVIDE expression .) ]
+  ! EQ              [ reduce using rule 35 (expression -> expression DIVIDE expression .) ]
+  ! NE              [ reduce using rule 35 (expression -> expression DIVIDE expression .) ]
+  ! UNION           [ shift and go to state 28 ]
+  ! INTERSECCION    [ shift and go to state 29 ]
+  ! DIFERENCIA      [ shift and go to state 30 ]
+  ! PLUS            [ shift and go to state 38 ]
+  ! MINUS           [ shift and go to state 39 ]
+  ! TIMES           [ shift and go to state 40 ]
+  ! DIVIDE          [ shift and go to state 41 ]
+
+
+state 61
+
+    (36) expression -> LPAREN expression RPAREN .
+
+    SEMICOLON       reduce using rule 36 (expression -> LPAREN expression RPAREN .)
+    UNION           reduce using rule 36 (expression -> LPAREN expression RPAREN .)
+    INTERSECCION    reduce using rule 36 (expression -> LPAREN expression RPAREN .)
+    DIFERENCIA      reduce using rule 36 (expression -> LPAREN expression RPAREN .)
+    EN              reduce using rule 36 (expression -> LPAREN expression RPAREN .)
+    LT              reduce using rule 36 (expression -> LPAREN expression RPAREN .)
+    LE              reduce using rule 36 (expression -> LPAREN expression RPAREN .)
+    GT              reduce using rule 36 (expression -> LPAREN expression RPAREN .)
+    GE              reduce using rule 36 (expression -> LPAREN expression RPAREN .)
+    EQ              reduce using rule 36 (expression -> LPAREN expression RPAREN .)
+    NE              reduce using rule 36 (expression -> LPAREN expression RPAREN .)
+    PLUS            reduce using rule 36 (expression -> LPAREN expression RPAREN .)
+    MINUS           reduce using rule 36 (expression -> LPAREN expression RPAREN .)
+    TIMES           reduce using rule 36 (expression -> LPAREN expression RPAREN .)
+    DIVIDE          reduce using rule 36 (expression -> LPAREN expression RPAREN .)
+    RPAREN          reduce using rule 36 (expression -> LPAREN expression RPAREN .)
+    RBRACE          reduce using rule 36 (expression -> LPAREN expression RPAREN .)
+    COMMA           reduce using rule 36 (expression -> LPAREN expression RPAREN .)
+
+
+state 62
+
+    (11) if_stmt -> IF LPAREN expression RPAREN . block
+    (12) if_stmt -> IF LPAREN expression RPAREN . block ELSE block
+    (13) block -> . LBRACE statement_list RBRACE
+
+    LBRACE          shift and go to state 67
+
+    block                          shift and go to state 66
+
+state 63
+
+    (8) declaration -> CONJUNTO ID ASSIGN set_literal SEMICOLON .
+
+    error           reduce using rule 8 (declaration -> CONJUNTO ID ASSIGN set_literal SEMICOLON .)
+    CONJUNTO        reduce using rule 8 (declaration -> CONJUNTO ID ASSIGN set_literal SEMICOLON .)
+    ID              reduce using rule 8 (declaration -> CONJUNTO ID ASSIGN set_literal SEMICOLON .)
+    IMPRIMIR        reduce using rule 8 (declaration -> CONJUNTO ID ASSIGN set_literal SEMICOLON .)
+    IF              reduce using rule 8 (declaration -> CONJUNTO ID ASSIGN set_literal SEMICOLON .)
+    $end            reduce using rule 8 (declaration -> CONJUNTO ID ASSIGN set_literal SEMICOLON .)
+    RBRACE          reduce using rule 8 (declaration -> CONJUNTO ID ASSIGN set_literal SEMICOLON .)
+
+
+state 64
+
+    (14) set_literal -> LBRACE element_list . RBRACE
+    (15) element_list -> element_list . COMMA expression
+
+    RBRACE          shift and go to state 68
+    COMMA           shift and go to state 69
+
+
+state 65
+
+    (16) element_list -> expression .
+    (22) expression -> expression . UNION expression
+    (23) expression -> expression . INTERSECCION expression
+    (24) expression -> expression . DIFERENCIA expression
+    (25) expression -> expression . EN expression
+    (26) expression -> expression . LT expression
+    (27) expression -> expression . LE expression
+    (28) expression -> expression . GT expression
+    (29) expression -> expression . GE expression
+    (30) expression -> expression . EQ expression
+    (31) expression -> expression . NE expression
+    (32) expression -> expression . PLUS expression
+    (33) expression -> expression . MINUS expression
+    (34) expression -> expression . TIMES expression
+    (35) expression -> expression . DIVIDE expression
+
+    RBRACE          reduce using rule 16 (element_list -> expression .)
+    COMMA           reduce using rule 16 (element_list -> expression .)
+    UNION           shift and go to state 28
+    INTERSECCION    shift and go to state 29
+    DIFERENCIA      shift and go to state 30
+    EN              shift and go to state 31
+    LT              shift and go to state 32
+    LE              shift and go to state 33
+    GT              shift and go to state 34
+    GE              shift and go to state 35
+    EQ              shift and go to state 36
+    NE              shift and go to state 37
+    PLUS            shift and go to state 38
+    MINUS           shift and go to state 39
+    TIMES           shift and go to state 40
+    DIVIDE          shift and go to state 41
+
+
+state 66
+
+    (11) if_stmt -> IF LPAREN expression RPAREN block .
+    (12) if_stmt -> IF LPAREN expression RPAREN block . ELSE block
+
+    error           reduce using rule 11 (if_stmt -> IF LPAREN expression RPAREN block .)
+    CONJUNTO        reduce using rule 11 (if_stmt -> IF LPAREN expression RPAREN block .)
+    ID              reduce using rule 11 (if_stmt -> IF LPAREN expression RPAREN block .)
+    IMPRIMIR        reduce using rule 11 (if_stmt -> IF LPAREN expression RPAREN block .)
+    IF              reduce using rule 11 (if_stmt -> IF LPAREN expression RPAREN block .)
+    $end            reduce using rule 11 (if_stmt -> IF LPAREN expression RPAREN block .)
+    RBRACE          reduce using rule 11 (if_stmt -> IF LPAREN expression RPAREN block .)
+    ELSE            shift and go to state 70
+
+
+state 67
+
+    (13) block -> LBRACE . statement_list RBRACE
+    (2) statement_list -> . statement_list statement
+    (3) statement_list -> . statement
+    (4) statement -> . declaration
+    (5) statement -> . assignment
+    (6) statement -> . print_stmt
+    (7) statement -> . if_stmt
+    (37) statement -> . error SEMICOLON
+    (8) declaration -> . CONJUNTO ID ASSIGN set_literal SEMICOLON
+    (9) assignment -> . ID ASSIGN expression SEMICOLON
+    (10) print_stmt -> . IMPRIMIR expression SEMICOLON
+    (11) if_stmt -> . IF LPAREN expression RPAREN block
+    (12) if_stmt -> . IF LPAREN expression RPAREN block ELSE block
+
+    error           shift and go to state 8
+    CONJUNTO        shift and go to state 9
+    ID              shift and go to state 10
+    IMPRIMIR        shift and go to state 11
+    IF              shift and go to state 12
+
+    statement_list                 shift and go to state 71
+    statement                      shift and go to state 3
+    declaration                    shift and go to state 4
+    assignment                     shift and go to state 5
+    print_stmt                     shift and go to state 6
+    if_stmt                        shift and go to state 7
+
+state 68
+
+    (14) set_literal -> LBRACE element_list RBRACE .
+
+    SEMICOLON       reduce using rule 14 (set_literal -> LBRACE element_list RBRACE .)
+
+
+state 69
+
+    (15) element_list -> element_list COMMA . expression
+    (17) expression -> . ID
+    (18) expression -> . NUMBER
+    (19) expression -> . STRING
+    (20) expression -> . TRUE
+    (21) expression -> . FALSE
+    (22) expression -> . expression UNION expression
+    (23) expression -> . expression INTERSECCION expression
+    (24) expression -> . expression DIFERENCIA expression
+    (25) expression -> . expression EN expression
+    (26) expression -> . expression LT expression
+    (27) expression -> . expression LE expression
+    (28) expression -> . expression GT expression
+    (29) expression -> . expression GE expression
+    (30) expression -> . expression EQ expression
+    (31) expression -> . expression NE expression
+    (32) expression -> . expression PLUS expression
+    (33) expression -> . expression MINUS expression
+    (34) expression -> . expression TIMES expression
+    (35) expression -> . expression DIVIDE expression
+    (36) expression -> . LPAREN expression RPAREN
+
+    ID              shift and go to state 18
+    NUMBER          shift and go to state 19
+    STRING          shift and go to state 20
+    TRUE            shift and go to state 21
+    FALSE           shift and go to state 22
+    LPAREN          shift and go to state 23
+
+    expression                     shift and go to state 72
+
+state 70
+
+    (12) if_stmt -> IF LPAREN expression RPAREN block ELSE . block
+    (13) block -> . LBRACE statement_list RBRACE
+
+    LBRACE          shift and go to state 67
+
+    block                          shift and go to state 73
+
+state 71
+
+    (13) block -> LBRACE statement_list . RBRACE
+    (2) statement_list -> statement_list . statement
+    (4) statement -> . declaration
+    (5) statement -> . assignment
+    (6) statement -> . print_stmt
+    (7) statement -> . if_stmt
+    (37) statement -> . error SEMICOLON
+    (8) declaration -> . CONJUNTO ID ASSIGN set_literal SEMICOLON
+    (9) assignment -> . ID ASSIGN expression SEMICOLON
+    (10) print_stmt -> . IMPRIMIR expression SEMICOLON
+    (11) if_stmt -> . IF LPAREN expression RPAREN block
+    (12) if_stmt -> . IF LPAREN expression RPAREN block ELSE block
+
+    RBRACE          shift and go to state 74
+    error           shift and go to state 8
+    CONJUNTO        shift and go to state 9
+    ID              shift and go to state 10
+    IMPRIMIR        shift and go to state 11
+    IF              shift and go to state 12
+
+    statement                      shift and go to state 13
+    declaration                    shift and go to state 4
+    assignment                     shift and go to state 5
+    print_stmt                     shift and go to state 6
+    if_stmt                        shift and go to state 7
+
+state 72
+
+    (15) element_list -> element_list COMMA expression .
+    (22) expression -> expression . UNION expression
+    (23) expression -> expression . INTERSECCION expression
+    (24) expression -> expression . DIFERENCIA expression
+    (25) expression -> expression . EN expression
+    (26) expression -> expression . LT expression
+    (27) expression -> expression . LE expression
+    (28) expression -> expression . GT expression
+    (29) expression -> expression . GE expression
+    (30) expression -> expression . EQ expression
+    (31) expression -> expression . NE expression
+    (32) expression -> expression . PLUS expression
+    (33) expression -> expression . MINUS expression
+    (34) expression -> expression . TIMES expression
+    (35) expression -> expression . DIVIDE expression
+
+    RBRACE          reduce using rule 15 (element_list -> element_list COMMA expression .)
+    COMMA           reduce using rule 15 (element_list -> element_list COMMA expression .)
+    UNION           shift and go to state 28
+    INTERSECCION    shift and go to state 29
+    DIFERENCIA      shift and go to state 30
+    EN              shift and go to state 31
+    LT              shift and go to state 32
+    LE              shift and go to state 33
+    GT              shift and go to state 34
+    GE              shift and go to state 35
+    EQ              shift and go to state 36
+    NE              shift and go to state 37
+    PLUS            shift and go to state 38
+    MINUS           shift and go to state 39
+    TIMES           shift and go to state 40
+    DIVIDE          shift and go to state 41
+
+
+state 73
+
+    (12) if_stmt -> IF LPAREN expression RPAREN block ELSE block .
+
+    error           reduce using rule 12 (if_stmt -> IF LPAREN expression RPAREN block ELSE block .)
+    CONJUNTO        reduce using rule 12 (if_stmt -> IF LPAREN expression RPAREN block ELSE block .)
+    ID              reduce using rule 12 (if_stmt -> IF LPAREN expression RPAREN block ELSE block .)
+    IMPRIMIR        reduce using rule 12 (if_stmt -> IF LPAREN expression RPAREN block ELSE block .)
+    IF              reduce using rule 12 (if_stmt -> IF LPAREN expression RPAREN block ELSE block .)
+    $end            reduce using rule 12 (if_stmt -> IF LPAREN expression RPAREN block ELSE block .)
+    RBRACE          reduce using rule 12 (if_stmt -> IF LPAREN expression RPAREN block ELSE block .)
+
+
+state 74
+
+    (13) block -> LBRACE statement_list RBRACE .
+
+    ELSE            reduce using rule 13 (block -> LBRACE statement_list RBRACE .)
+    error           reduce using rule 13 (block -> LBRACE statement_list RBRACE .)
+    CONJUNTO        reduce using rule 13 (block -> LBRACE statement_list RBRACE .)
+    ID              reduce using rule 13 (block -> LBRACE statement_list RBRACE .)
+    IMPRIMIR        reduce using rule 13 (block -> LBRACE statement_list RBRACE .)
+    IF              reduce using rule 13 (block -> LBRACE statement_list RBRACE .)
+    $end            reduce using rule 13 (block -> LBRACE statement_list RBRACE .)
+    RBRACE          reduce using rule 13 (block -> LBRACE statement_list RBRACE .)
+
