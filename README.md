@@ -17,15 +17,15 @@ SetLang es un lenguaje diseñado para la manipulación, evaluación y exploraci�
 * PLY (Python Lex-Yacc): Librería requerida para el procesamiento de la gramática.
 
 Para instalar la dependencia, ejecute:
-`bash
+```
 pip install ply
-
+```
 Para analizar un archivo de código fuente escrito en SetLang, ejecuta el archivo principal pasándole la ruta del programa como argumento desde la línea de comandos:
-`bash
+```
 python main.py prueba_valida.set 
-
+```
 Si el programa no contiene errores léxicos, sintácticos ni semánticos, la consola mostrará el mensaje:
-`bash
+```
 Programa semánticamente correcto.
-
+```
 En caso de encontrar una violación a las reglas, el compilador abortará su ejecución imprimiendo con exactitud el tipo de error, la línea, la columna y la regla que fue violada.
