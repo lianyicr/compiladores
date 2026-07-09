@@ -1,0 +1,17 @@
+// comentario
+
+conjunto A = {1, 2, 3, 4};
+conjunto B = {3, 4, 5, 6};
+
+/*
+comentario
+de bloque
+*/
+
+imprimir A union B;
+
+imprimir A interseccion B;
+
+imprimir A diferencia B;
+
+imprimir 3 en A;
